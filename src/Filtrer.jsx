@@ -6,6 +6,7 @@ const Filtrer = ({ onFiltrer }) => {
   const [description, setDescription] = useState('');
   const [posterURL, setPosterURL] = useState('');
   const [note, setNote] = useState('');
+  const [trailerURL, setTrailerURL] = useState('');
 
   const handleTitreChange = (e) => {
     setTitre(e.target.value);
@@ -23,19 +24,25 @@ const Filtrer = ({ onFiltrer }) => {
     setNote(e.target.value);
   };
 
+  const handleTrailerURLChange = (e) => {
+    setTrailerURL(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const nouveauFilm = {
       titre,
       description,
       posterURL,
-      note: parseInt(note)
+      note: parseInt(note),
+      trailerURL
     };
     onFiltrer(nouveauFilm);
     setTitre('');
     setDescription('');
     setPosterURL('');
     setNote('');
+    setTrailerURL('');
   };
 
   return (
@@ -63,6 +70,12 @@ const Filtrer = ({ onFiltrer }) => {
         placeholder="Note"
         value={note}
         onChange={handleNoteChange}
+      />
+      <input
+        type="text"
+        placeholder="URL de la bande-annonce"
+        value={trailerURL}
+        onChange={handleTrailerURLChange}
       />
       <button type="submit">Ajouter</button>
     </form>

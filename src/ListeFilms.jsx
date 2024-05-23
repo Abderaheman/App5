@@ -35,7 +35,7 @@ const ListeFilms = ({ films }) => {
       />
       <div className="liste-films">
         {filmsFiltres.map((film, index) => (
-          <FilmCard key={index} film={film} />
+          <FilmCard key={index} film={film} index={index} />
         ))}
       </div>
     </div>
